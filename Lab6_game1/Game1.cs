@@ -12,17 +12,17 @@ namespace Lab6_game1
         SpriteBatch spriteBatch;
         Texture2D ballTexture;
         Texture2D charTexture;
-        //Vector2 charPosition = new Vector2 (0,250);
-        //Vector2[] ballPosition = new Vector2[4];
+        Vector2 charPosition = new Vector2 (0,250);
+        Vector2[] ballPosition = new Vector2[4];
         //bool personHit;
-        //int[] ballColor = new int[4];
-        //Random rand = new Random();
+        int[] ballColor = new int[4];
+        Random rand = new Random();
        
 
 
-        //int direction = 0;
-        //int frame, totalFrame, framePerSec;
-        //float timePerSec, totalElapsed, timePerFrame;
+        int direction = 0;
+        int frame, totalFrame, framePerSec;
+        float timePerSec, totalElapsed, timePerFrame;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -64,34 +64,34 @@ namespace Lab6_game1
         protected override void Update(GameTime gameTime)
         {
             GraphicsDevice device = graphics.GraphicsDevice;
-            //KeyboardState keyboard = Keyboard.GetState();
-            //int a = rand.Next(1, 20);
-            // if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            //    Exit();
-            //if (keyboard.IsKeyDown(Keys.Left)) 
-            //{
-            //    charPosition.X = charPosition.X - a;
-            //    direction = 1;
-            //    UpdateFrame((float)gameTime.ElapsedGameTime.TotalSeconds);
-            //}
-            //if (keyboard.IsKeyDown(Keys.Right)) 
-            //{ 
-            //    charPosition.X = charPosition.X + a;
-            //    direction = 2;
-            //    UpdateFrame((float)gameTime.ElapsedGameTime.TotalSeconds);
-            //}
-            //if (keyboard.IsKeyDown(Keys.Up))
-            //{
-            //    charPosition.Y = charPosition.Y - a;
-            //    direction = 3;
-            //    UpdateFrame((float)gameTime.ElapsedGameTime.TotalSeconds);
-            //}
-            //if (keyboard.IsKeyDown(Keys.Down))
-            //{
-            //    charPosition.Y = charPosition.Y + a;
-            //    direction = 0;
-            //    UpdateFrame((float)gameTime.ElapsedGameTime.TotalSeconds);
-            //}
+            KeyboardState keyboard = Keyboard.GetState();
+            int a = rand.Next(1, 20);
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
+            if (keyboard.IsKeyDown(Keys.Left))
+            {
+                charPosition.X = charPosition.X - a;
+                direction = 1;
+                //UpdateFrame((float)gameTime.ElapsedGameTime.TotalSeconds);
+            }
+            if (keyboard.IsKeyDown(Keys.Right))
+            {
+                charPosition.X = charPosition.X + a;
+                direction = 2;
+                //UpdateFrame((float)gameTime.ElapsedGameTime.TotalSeconds);
+            }
+            if (keyboard.IsKeyDown(Keys.Up))
+            {
+                charPosition.Y = charPosition.Y - a;
+                direction = 3;
+               // UpdateFrame((float)gameTime.ElapsedGameTime.TotalSeconds);
+            }
+            if (keyboard.IsKeyDown(Keys.Down))
+            {
+                charPosition.Y = charPosition.Y + a;
+                direction = 0;
+                //UpdateFrame((float)gameTime.ElapsedGameTime.TotalSeconds);
+            }
 
             //Rectangle charRectangle = new Rectangle((int)charPosition.X, (int)charPosition.Y, 32, 48);
 
@@ -111,7 +111,7 @@ namespace Lab6_game1
             //        personHit = false;
             //    }
             //}
-            
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -121,22 +121,22 @@ namespace Lab6_game1
         {
             GraphicsDevice device = graphics.GraphicsDevice;
 
-            //if (personHit == true) 
+            //if (personhit == true) 
             //{ 
-            //    device.Clear(Color.Red); 
+            //    device.clear(color.red); 
             //} 
             //else 
             //{ 
-            //    device.Clear(Color.CornflowerBlue); 
+            //    device.clear(color.cornflowerblue); 
             //}
 
-            //spriteBatch.Begin();
-            //for(int i = 0; i <4; i++)
-            //{
-            //    spriteBatch.Draw(ballTexture, ballPosition[i], new Rectangle(24*ballColor[i], 0, 24, 24), Color.White);
-            //}
-            //spriteBatch.Draw(charTexture, charPosition, new Rectangle(32*frame , 48*direction, 32, 48), Color.White);
-            //spriteBatch.End();
+            spriteBatch.Begin();
+            for (int i = 0; i < 4; i++)
+            {
+                spriteBatch.Draw(ballTexture, ballPosition[i], new Rectangle(24 * ballColor[i], 0, 24, 24), Color.White);
+            }
+            spriteBatch.Draw(charTexture, charPosition, new Rectangle(32 * frame, 48 * direction, 32, 48), Color.White);
+            spriteBatch.End();
 
             //// TODO: Add your drawing code here
 

@@ -10,7 +10,7 @@ namespace Lab6_game1
         
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        //Texture2D ballTexture;
+        Texture2D ballTexture;
         Texture2D charTexture;
         //Vector2 charPosition = new Vector2 (0,250);
         //Vector2[] ballPosition = new Vector2[4];
@@ -41,7 +41,7 @@ namespace Lab6_game1
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             charTexture = Content.Load<Texture2D>("Char01");
-            //ballTexture = Content.Load<Texture2D>("ball");
+            ballTexture = Content.Load<Texture2D>("ball");
             //frame = 0;
             //totalFrame = 4;
             //framePerSec = 8;
